@@ -28,4 +28,8 @@ if (fs.existsSync(dist)) {
   app.get('*', (_req, res) => res.sendFile(path.join(dist, 'index.html')));
 }
 
-app.listen(process.env.PORT || 5000, () => console.log('LinkExtract server running'));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`LinkExtract server running on port ${PORT}`);
+});
