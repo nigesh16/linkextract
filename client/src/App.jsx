@@ -98,7 +98,7 @@ export default function App() {
       const chunk = urls.slice(i, i + CHUNK);
       let results;
       try {
-        const res = await fetch('/api/extract', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/extract`, {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ urls: chunk, timeZone })
         });
         if (!res.ok) throw new Error('server error ' + res.status);
